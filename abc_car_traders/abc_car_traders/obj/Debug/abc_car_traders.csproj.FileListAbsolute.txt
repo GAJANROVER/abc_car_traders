@@ -1,0 +1,14 @@
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\bin\Debug\abc_car_traders.exe.config
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\bin\Debug\abc_car_traders.exe
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\bin\Debug\abc_car_traders.pdb
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.csproj.AssemblyReference.cache
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.AdminDashboard.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.CustomerRegistration.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.Form1.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.Parts.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.Properties.Resources.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.VehicleAdd.resources
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.csproj.GenerateResource.cache
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.csproj.CoreCompileInputs.cache
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.exe
+D:\Personal\projects\abc_car_traders\abc_car_traders\abc_car_traders\obj\Debug\abc_car_traders.pdb

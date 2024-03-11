@@ -40,5 +40,10 @@ namespace abc_car_traders
             this.Hide();
             adminDahsboard.Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

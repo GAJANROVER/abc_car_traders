@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 
 namespace abc_car_traders
@@ -32,9 +33,48 @@ namespace abc_car_traders
         }
 
 
+
+
         // Customer Add
         private void customer_save_Click_1(object sender, EventArgs e)
         {
+            common common = new common();
+            string name = textBox1Name.Text;
+            string address = textBox2Add.Text;
+            string nic  = textBox3Nic.Text;
+            string email = textBox4Email.Text;
+            string pno = textBox5Pno.Text;
+            string pw = textBox1Pw.Text;
+
+            bool validEmail = common.IsValidEmail(email);
+            bool validName = common.ContainsOnlyLetters(name);
+            bool validPno = common.ContainsOnlyNumbers(pno);
+
+            if (!validName && (!string.IsNullOrEmpty(name)))
+            {
+                MessageBox.Show("Name should contain only letters.", "Warning");
+                return;
+            }
+            else if (!validEmail && (!string.IsNullOrEmpty(email)))
+            {
+                MessageBox.Show("Invalid email address.", "Warning");
+                return;
+            }
+            else if (pno.Length != 10 && (!string.IsNullOrEmpty(pno)))
+            {
+                MessageBox.Show("Phone number must contain exactly 10 numeric characters.", "Warning");
+                return;
+            }
+            else if (!validPno && (!string.IsNullOrEmpty(pno)))
+            {
+                MessageBox.Show("Phone number should contain only numbers.", "Warning");
+                return;
+            }else if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(address) && string.IsNullOrEmpty(nic) && string.IsNullOrEmpty(email) && string.IsNullOrEmpty(pno) && string.IsNullOrEmpty(pw))
+            {
+                MessageBox.Show("Can't Save Empty Record", "Warning");
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
@@ -43,8 +83,8 @@ namespace abc_car_traders
                 cmd.Parameters.AddWithValue("@custo_address", textBox2Add.Text);
                 cmd.Parameters.AddWithValue("@custo_nic", textBox3Nic.Text);
                 cmd.Parameters.AddWithValue("@custo_email", textBox4Email.Text);
-                cmd.Parameters.AddWithValue("@custo_pno", textBox5Pno.Text);
-                cmd.Parameters.AddWithValue("@custo_pass", "custo123"); // Assuming you have a default password
+                cmd.Parameters.AddWithValue("@custo_pno", int.Parse(textBox5Pno.Text));
+                cmd.Parameters.AddWithValue("@custo_pass", textBox1Pw.Text);
 
                 cmd.ExecuteNonQuery();
 
@@ -52,6 +92,9 @@ namespace abc_car_traders
 
                 // Refresh DataGridView
                 show_Click_1(sender, e);
+
+                // reset the text fields
+                reset_Click_1(sender, e);
             }
         }
 
@@ -79,6 +122,7 @@ namespace abc_car_traders
             textBox3Nic.Text = string.Empty;
             textBox4Email.Text = string.Empty;
             textBox5Pno.Text = string.Empty;
+            textBox1Pw.Text = string.Empty;
         }
 
         // Customer Delete
@@ -113,6 +157,9 @@ namespace abc_car_traders
                     // Display success message
                     MessageBox.Show("Customer Deleted Successfully", "Success");
                 }
+
+                // reset the text fields
+                reset_Click_1(sender, e);
             }
             else
             {
@@ -123,6 +170,31 @@ namespace abc_car_traders
         // Customer Update
         private void update_Click_1(object sender, EventArgs e)
         {
+            common common = new common();
+            string email = textBox4Email.Text;
+            string name = textBox1Name.Text;
+            string pno = textBox5Pno.Text;
+
+            bool validEmail = common.IsValidEmail(email);
+            bool validName = common.ContainsOnlyLetters(name);
+            bool validPno = common.ContainsOnlyNumbers(pno);
+
+            if (!validName && (!string.IsNullOrEmpty(name)))
+            {
+                MessageBox.Show("Name should contain only letters.", "Warning");
+                return;
+            }
+            else if (!validEmail && (!string.IsNullOrEmpty(email)))
+            {
+                MessageBox.Show("Invalid email address.", "Warning");
+                return;
+            }
+            else if (!validPno && (!string.IsNullOrEmpty(pno)))
+            {
+                MessageBox.Show("Phone number should contain only numbers.", "Warning");
+                return;
+            }
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Get the selected row
@@ -155,6 +227,9 @@ namespace abc_car_traders
                     // Refresh DataGridView
                     show_Click_1(sender, e);
 
+                    // reset the text fields
+                    reset_Click_1(sender, e);
+
                     // Display success message
                     MessageBox.Show("Customer Updated Successfully", "Success");
                 }
@@ -166,7 +241,7 @@ namespace abc_car_traders
         }
 
 
- 
+
 
         private void SelectCustomer(object sender, EventArgs e)
         {

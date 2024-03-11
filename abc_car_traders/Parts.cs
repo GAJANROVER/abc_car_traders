@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,14 +41,34 @@ namespace abc_car_traders
 
         private void partSave_Click(object sender, EventArgs e)
         {
+            string name = partName.Text;
+            string number = partNumber.Text;
+            string model = partCarModel.Text;
+            string price = partPrice.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(number) && string.IsNullOrEmpty(model) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Can't Save Empty Record", "Warning");
+                return;
+            }
+
+            common common = new common();
+            bool validPrice = common.ContainsOnlyNumbers(price);
+
+            if (!validPrice && (!string.IsNullOrEmpty(price)))
+            {
+                MessageBox.Show("Part price should contain only numbers.", "Warning");
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO parts (part_name, part_number, part_car_model, part_price) VALUES (@part_name, @part_number, @part_car_model, @part_price)", con);
-                cmd.Parameters.AddWithValue("@part_name", partName.Text);
-                cmd.Parameters.AddWithValue("@part_number", partNumber.Text);
-                cmd.Parameters.AddWithValue("@part_car_model", partCarModel.Text);
-                cmd.Parameters.AddWithValue("@part_price", partPrice.Text);
+                cmd.Parameters.AddWithValue("@part_name", name);
+                cmd.Parameters.AddWithValue("@part_number", number);
+                cmd.Parameters.AddWithValue("@part_car_model", model);
+                cmd.Parameters.AddWithValue("@part_price", int.Parse(price));
 
                 cmd.ExecuteNonQuery();
 
@@ -66,6 +87,16 @@ namespace abc_car_traders
 
         private void partUpdate_Click(object sender, EventArgs e)
         {
+            common common = new common();
+            string price = partPrice.Text;
+
+            bool validPrice = common.ContainsOnlyNumbers(price);
+            if (!validPrice && (!string.IsNullOrEmpty(price)))
+            {
+                MessageBox.Show("Part price should contain only numbers.", "Warning");
+                return;
+            }
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Get the selected row
@@ -111,7 +142,7 @@ namespace abc_car_traders
             }
         }
 
-    
+
 
         private void partDelete_Click(object sender, EventArgs e)
         {

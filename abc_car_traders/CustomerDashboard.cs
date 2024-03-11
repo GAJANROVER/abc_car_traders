@@ -33,7 +33,9 @@ namespace abc_car_traders
 
         private void checkOrders_Click(object sender, EventArgs e)
         {
-
+            checkOrders checkOrders = new checkOrders(loggedInUserId);
+            this.Hide();
+            checkOrders.Show();
         }
 
         private void orderNewCar_Click(object sender, EventArgs e)

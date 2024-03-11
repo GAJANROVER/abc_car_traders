@@ -43,10 +43,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Centaur", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(681, 25);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(908, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(346, 33);
+            this.label7.Size = new System.Drawing.Size(433, 41);
             this.label7.TabIndex = 65;
             this.label7.Text = "Welcome to ABC Car Traders";
             // 
@@ -55,7 +54,8 @@
             this.pictureBox1.BackColor = System.Drawing.Color.MintCream;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 31);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(516, 516);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -66,18 +66,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Forte", 50.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 468);
+            this.label1.Location = new System.Drawing.Point(19, 576);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(511, 73);
+            this.label1.Size = new System.Drawing.Size(637, 92);
             this.label1.TabIndex = 67;
             this.label1.Text = "ABC Car Traders";
             // 
             // checkOrders
             // 
             this.checkOrders.Font = new System.Drawing.Font("Centaur", 18F);
-            this.checkOrders.Location = new System.Drawing.Point(653, 227);
+            this.checkOrders.Location = new System.Drawing.Point(871, 279);
+            this.checkOrders.Margin = new System.Windows.Forms.Padding(4);
             this.checkOrders.Name = "checkOrders";
-            this.checkOrders.Size = new System.Drawing.Size(187, 35);
+            this.checkOrders.Size = new System.Drawing.Size(249, 43);
             this.checkOrders.TabIndex = 69;
             this.checkOrders.Text = "Check Orders";
             this.checkOrders.UseVisualStyleBackColor = true;
@@ -86,9 +88,10 @@
             // logout
             // 
             this.logout.Font = new System.Drawing.Font("Centaur", 18F);
-            this.logout.Location = new System.Drawing.Point(926, 227);
+            this.logout.Location = new System.Drawing.Point(1235, 279);
+            this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(180, 35);
+            this.logout.Size = new System.Drawing.Size(240, 43);
             this.logout.TabIndex = 70;
             this.logout.Text = "logout";
             this.logout.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // orderNewCar
             // 
             this.orderNewCar.Font = new System.Drawing.Font("Centaur", 18F);
-            this.orderNewCar.Location = new System.Drawing.Point(653, 140);
+            this.orderNewCar.Location = new System.Drawing.Point(871, 172);
+            this.orderNewCar.Margin = new System.Windows.Forms.Padding(4);
             this.orderNewCar.Name = "orderNewCar";
-            this.orderNewCar.Size = new System.Drawing.Size(187, 34);
+            this.orderNewCar.Size = new System.Drawing.Size(249, 42);
             this.orderNewCar.TabIndex = 71;
             this.orderNewCar.Text = "Order New Car";
             this.orderNewCar.UseVisualStyleBackColor = true;
@@ -108,9 +112,10 @@
             // orderCarPart
             // 
             this.orderCarPart.Font = new System.Drawing.Font("Centaur", 18F);
-            this.orderCarPart.Location = new System.Drawing.Point(926, 140);
+            this.orderCarPart.Location = new System.Drawing.Point(1235, 172);
+            this.orderCarPart.Margin = new System.Windows.Forms.Padding(4);
             this.orderCarPart.Name = "orderCarPart";
-            this.orderCarPart.Size = new System.Drawing.Size(180, 34);
+            this.orderCarPart.Size = new System.Drawing.Size(240, 42);
             this.orderCarPart.TabIndex = 72;
             this.orderCarPart.Text = "Order Car Part";
             this.orderCarPart.UseVisualStyleBackColor = true;
@@ -118,9 +123,10 @@
             // 
             // CustomerDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 585);
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(1617, 720);
             this.Controls.Add(this.orderCarPart);
             this.Controls.Add(this.orderNewCar);
             this.Controls.Add(this.logout);
@@ -128,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomerDashboard";
             this.Text = "CustomerDashboard";
             this.Load += new System.EventHandler(this.CustomerDashboard_Load);
